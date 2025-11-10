@@ -19,14 +19,12 @@ class UserController extends Controller
 
     public function index(){
     
-        $kelasModel = new Kelas();
-        $kelas = $kelasModel->getKelas();
         $data = [
-            'title' => 'Create User',
-            'kelas' => $kelas,
+            'title' => 'List User',
+            'users' => $this->userModel->getUser(),
         ];
 
-        return view('users.index', compact('kelas'));
+        return view('list_user', $data);
     }
 
     public function store(Request $request)
